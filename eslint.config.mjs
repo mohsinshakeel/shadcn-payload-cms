@@ -28,6 +28,8 @@ const eslintConfig = [
           caughtErrorsIgnorePattern: '^(_|ignore)',
         },
       ],
+      '@typescript-eslint/no-wrapper-object-types': 'warn',
+      'react-hooks/exhaustive-deps': 'warn',
     },
   },
 ]

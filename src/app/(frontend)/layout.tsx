@@ -1,18 +1,28 @@
 import React from 'react'
-import './styles.css'
+import type { Metadata } from 'next'
+import { ThemeProvider } from 'next-themes'
+// import { Inter } from 'next/font/google'
+import { Toaster } from 'react-hot-toast'
 
-export const metadata = {
-  description: 'A blank template using Payload in a Next.js app.',
-  title: 'Payload Blank Template',
+import '@/styles/global.css'
+import '@/styles/tailwind.css'
+
+export const metadata: Metadata = {
+  title: 'Task Todo App',
+  description: 'Task Todo App',
 }
 
-export default async function RootLayout(props: { children: React.ReactNode }) {
-  const { children } = props
+// Corrected Inter usage
+// const inter = Inter({ subsets: ['latin'], display: 'swap' })
 
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <main>{children}</main>
+        <ThemeProvider attribute="class" enableSystem>
+          <Toaster />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )
