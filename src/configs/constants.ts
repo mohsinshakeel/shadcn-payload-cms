@@ -1,7 +1,6 @@
-export const tasksUrl = '/tasks';
+export const tasksUrl = '/tasks'
 
-export const BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080/api';
+export const BASE_URL = process.env.PAYLOAD_API_URL || 'http://localhost:3000/api'
 
 export const colors = [
   { name: 'Red', value: 'hsla(3, 100%, 59%, 1)' },
@@ -13,4 +12,4 @@ export const colors = [
   { name: 'Purple', value: 'hsla(280, 68%, 60%, 1)' },
   { name: 'Pink', value: 'hsla(349, 100%, 59%, 1)' },
   { name: 'Brown', value: 'hsla(34, 27%, 50%, 1)' },
-];
+]

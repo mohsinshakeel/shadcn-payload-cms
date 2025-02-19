@@ -1,21 +1,16 @@
-import Image, { ImageProps } from 'next/image';
-import { useEffect, useState } from 'react';
+'use client'
+
+import Image, { ImageProps } from 'next/image'
+import { useEffect, useState } from 'react'
 
 const NextImage = ({ alt = 'default alt', src, ...rest }: ImageProps) => {
-  const [url, setUrl] = useState(src);
+  const [url, setUrl] = useState(src)
 
   useEffect(() => {
-    setUrl(src);
-  }, [src]);
+    setUrl(src)
+  }, [src])
 
-  return (
-    <Image
-      alt={alt}
-      src={url}
-      {...rest}
-      onError={() => setUrl('/favicon.ico')}
-    />
-  );
-};
+  return <Image alt={alt} src={url} {...rest} onError={() => setUrl('/favicon.ico')} />
+}
 
-export default NextImage;
+export default NextImage

@@ -1,25 +1,23 @@
-import { ReactNode } from 'react';
+import { ReactNode } from 'react'
 
-import Navbar from '../components/Navbar/Navbar';
-import { cn } from '@/lib/cn';
+import { cn } from '@/lib/cn'
+
+import Navbar from '../components/Navbar/Navbar'
 
 interface AppLayoutProps {
-  children: ReactNode;
-  title: string;
-  showAddButton?: boolean;
-  onClickAddButton?: () => void;
+  children: ReactNode
+  title: string
+  showAddButton?: boolean
 }
 
 const AppLayout = (props: AppLayoutProps) => {
-  const { children, ...rest } = props;
+  const { children, ...rest } = props
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Navbar {...rest} />
-      <div className={cn('flex flex-col overflow-none my-10 w-3/6 self-center')}>
-        {children}
-      </div>
+      <div className={cn('flex flex-col overflow-none my-10 w-3/6 self-center')}>{children}</div>
     </div>
-  );
-};
+  )
+}
 
-export default AppLayout;
+export default AppLayout

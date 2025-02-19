@@ -1,11 +1,10 @@
-import React from 'react';
+import React from 'react'
 
-import TopNavbar from './Components/TopNavbar';
+import TopNavbar from './Components/TopNavbar'
 
 interface INavbar {
-  title: string;
-  showAddButton?: boolean;
-  onClickAddButton?: () => void;
+  title: string
+  showAddButton?: boolean
 }
 
 function Navbar({ title, ...rest }: INavbar) {
@@ -16,7 +15,7 @@ function Navbar({ title, ...rest }: INavbar) {
       </div>
       {/* add left side bar */}
     </div>
-  );
+  )
 }
 
-export default Navbar;
+export default Navbar

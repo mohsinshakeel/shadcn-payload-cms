@@ -29,6 +29,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialValues, onSubmit, isLoading 
   const form = useForm<TaskFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: initialValues || { title: '', color: '' },
+    mode: 'onSubmit',
   })
 
   useEffect(() => {
@@ -45,30 +46,38 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialValues, onSubmit, isLoading 
           control={form.control}
           name="title"
           render={({ field }) => (
-            <FormControl>
-              <Input
-                label="Title"
-                placeholder="Ex. Brush your teeth"
-                {...field}
-                className="!m-0 w-full h-[50px]"
-                error={form.formState.errors.title?.message}
-              />
-            </FormControl>
+            <>
+              <FormControl>
+                <Input
+                  label="Title"
+                  placeholder="Ex. Brush your teeth"
+                  {...field}
+                  className="!m-0 w-full h-[50px]"
+                  error={form.formState.errors.title?.message}
+                />
+              </FormControl>
+              <FormMessage className="text-destructive" />
+            </>
           )}
         />
-        <FormMessage className="text-destructive" />
 
         {/* Color Field */}
         <FormField
           control={form.control}
           name="color"
           render={({ field }) => (
-            <FormControl>
-              <ColorSelector onSelect={field.onChange} label="Color" selectedColor={field.value} />
-            </FormControl>
+            <>
+              <FormControl>
+                <ColorSelector
+                  onSelect={field.onChange}
+                  label="Color"
+                  selectedColor={field.value}
+                />
+              </FormControl>
+              <FormMessage className="text-destructive" />
+            </>
           )}
         />
-        <FormMessage className="text-destructive" />
 
         {/* Submit Button */}
         <Button type="submit" variant="default" className="w-full h-14" disabled={isLoading}>
