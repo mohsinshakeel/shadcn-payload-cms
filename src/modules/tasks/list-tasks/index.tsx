@@ -36,7 +36,6 @@ export default async function ListTasks() {
             </span>
           </div>
         </div>
-
         <TaskList tasks={tasks} />
       </div>
     </AppLayout>
