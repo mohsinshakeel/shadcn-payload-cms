@@ -8,7 +8,7 @@ import TaskList from './components/TasksLists'
 export default async function ListTasks() {
   const data = await getAllTasksAction()
 
-  if (!data || (data.docs && data.docs.length === 0)) {
+  if (!data || (data.docs && data.docs?.length === 0)) {
     return (
       <AppLayout title="Tasks" showAddButton>
         <NoData isFetching={false} />
@@ -16,7 +16,7 @@ export default async function ListTasks() {
     )
   }
 
-  const tasks = data.docs
+  const tasks = data.docs || []
 
   return (
     <AppLayout title="Tasks" showAddButton>
@@ -31,7 +31,7 @@ export default async function ListTasks() {
           <div className="flex items-center gap-3">
             <h1 className="text-sm font-bold text-secondary ">Completed</h1>
             <span className="text-xs bg-border text-foreground font-bold rounded-xl px-2 py-1">
-              {tasks.filter((task) => task.status === Status.COMPLETED).length} &nbsp;of&nbsp;{' '}
+              {tasks.filter((task) => task.status === Status.COMPLETED)?.length} &nbsp;of&nbsp;{' '}
               {tasks.length}
             </span>
           </div>
