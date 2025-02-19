@@ -29,11 +29,10 @@ export async function createTaskAction(values: TaskFormValues) {
 
 export async function getAllTasksAction(): Promise<ITaskResponse> {
   try {
-    const response = await fetch(TASKS_URL, { cache: 'no-store' })
+    const response = await fetch(TASKS_URL, { next: { revalidate: 600 } })
     return await response.json()
   } catch (error) {
-    console.error('An error occurred:', error)
-    return {} as ITaskResponse
+    return { docs: [] } as unknown as ITaskResponse
   }
 }
 

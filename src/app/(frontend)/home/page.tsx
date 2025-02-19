@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-import { ListTasks } from '@/modules';
+import { ListTasks } from '@/modules'
 
 const HomePage = () => {
-  return <ListTasks />;
-};
+  return <ListTasks />
+}
 
-export default HomePage;
+export default HomePage

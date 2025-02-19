@@ -6,15 +6,17 @@ import NoData from './components/NoData'
 import TaskList from './components/TasksLists'
 
 export default async function ListTasks() {
-  const { docs: tasks } = await getAllTasksAction()
+  const data = await getAllTasksAction()
 
-  if (!tasks.length) {
+  if (!data || (data.docs && data.docs.length === 0)) {
     return (
       <AppLayout title="Tasks" showAddButton>
         <NoData isFetching={false} />
       </AppLayout>
     )
   }
+
+  const tasks = data.docs
 
   return (
     <AppLayout title="Tasks" showAddButton>
